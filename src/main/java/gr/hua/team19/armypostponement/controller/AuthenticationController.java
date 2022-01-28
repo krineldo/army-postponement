@@ -1,7 +1,10 @@
 package gr.hua.team19.armypostponement.controller;
 
+import gr.hua.team19.armypostponement.model.Application;
 import gr.hua.team19.armypostponement.model.User;
 import gr.hua.team19.armypostponement.service.UserService;
+import gr.hua.team19.armypostponement.service.ApplicationService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -13,11 +16,15 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.validation.Valid;
 
 
+
 @Controller
 public class AuthenticationController {
 
     @Autowired
     UserService userService;
+
+    @Autowired
+    ApplicationService applicationService;
 
     @RequestMapping(value =  "" , method = RequestMethod.GET) // /login
     public ModelAndView login() {
@@ -38,6 +45,8 @@ public class AuthenticationController {
     @RequestMapping(value = "/form-application", method = RequestMethod.GET)
     public ModelAndView formApplication() {
         ModelAndView modelAndView = new ModelAndView();
+        Application application = new Application();
+        modelAndView.addObject("application",application);
         modelAndView.setViewName("form_application"); // resources/template/home.html
         return modelAndView;
     }
@@ -82,6 +91,26 @@ public class AuthenticationController {
         }
         modelAndView.addObject("user", new User());
         modelAndView.setViewName("register");
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/form-application", method = RequestMethod.POST)
+    public ModelAndView submitApplication(@Valid Application application, BindingResult bindingResult, ModelMap modelMap){
+        ModelAndView modelAndView = new ModelAndView();
+        if(bindingResult.hasErrors()){
+            modelAndView.addObject("successMessage", "Please correct the errors in form");
+            modelMap.addAttribute("bindingResult", bindingResult);
+        }
+        else if (applicationService.isApplicationAlreadyPresent(application)){
+            // save the user registration form
+            modelAndView.addObject("successMessage", "Application already exists");
+        }
+        else {
+            applicationService.saveApplication(application);
+            modelAndView.addObject("successMessage", "Application is submitted successfully");
+        }
+        modelAndView.addObject("application", new Application());
+        modelAndView.setViewName("form_application");
         return modelAndView;
     }
 }
