@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Application Form</title>
+    <!-- link rel="stylesheet" type="text/css" th:href="@{/css/registration.css}" /-->
+    <link href="/static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet">
+    <!--link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"-->
+    <script th:src="@{/javascript/main.js}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<header>
+    <h1>ARMY POSTPONEMENT</h1>
+    <nav>
+        <ul>
+            <div class="button-signout">
+                <b>Name Surname</b>
+                <form th:action="@{/logout}" method="post">
+                    <input type="submit" value="Sign Out" />
+                </form>
+            </div>
+        </ul>
+    </nav>
+</header>
+
+<body>
+<div class="container">
+    <div class="title">Postponement Form</div>
+    <div class="content">
+        <form action="#" th:action="@{/form-application}" th:object="${application}" method="post" role="form">
+            <div class="citizen-details">
+                <div class="input-box">
+                    <span class="details">First name</span>
+                    <input type="text" th:field="*{firstName}" required>
+                </div>
+
+                <div class="input-box">
+                    <span class="details">Last name</span>
+                    <input type="text" th:field="*{lastName}" required>
+                </div>
+
+                <div class="input-box">
+                    <span class="details">Father's name</span>
+                    <input type="text" th:field="*{fatherName}" required>
+                </div>
+
+                <div class="input-box">
+                    <span class="details">Mother's name</span>
+                    <input type="text" th:field="*{motherName}" required>
+                </div>
+
+                <div class="input-box">
+                    <span class="details">AFM Number</span>
+                    <input type="text" th:field="*{afm}" required>
+                </div>
+
+                <div class="input-box">
+                    <span class="details">AMKA Number</span>
+                    <input type="text" th:field="*{amka}" required>
+                </div>
+
+                <div class="input-box">
+                    <span class="details">Army ID number</span>
+                    <input type="text" th:field="*{military_number}" required>
+                </div>
+
+                <div class="input-box">
+                    <span class="details">Email</span>
+                    <input type="text" th:field="*{email}" required>
+                </div>
+            </div>
+
+            <tr>
+                <a th:href="@{/search}" class="button-yes">View Application Status</a>
+            </tr>
+
+            <div class="button">
+                <input type="submit" value="Submit">
+            </div>
+
+            <div class="message-box">
+                <span th:utext="${successMessage}"></span>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+
+</html>

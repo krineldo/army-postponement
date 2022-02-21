@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Application Form Approval</title>
+    <link href="/static/css/style.css" th:href="@{/css/style-validation-approval.css}" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<header>
+    <h1>ARMY POSTPONEMENT</h1>
+    <nav>
+        <ul>
+            <div class="button-signout">
+                <b>Name Surname</b>
+                <form th:action="@{/logout}" method="post">
+                    <input type="submit" value="Sign Out" />
+                </form>
+            </div>
+        </ul>
+    </nav>
+</header>
+
+<body>
+<h2>Applications for approval</h2>
+<div class="table-wrapper">
+    <table class="fl-table">
+        <thead>
+        <tr>
+            <th>Military Number</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Amka</th>
+            <th>Afm</th>
+            <th>Father's Name</th>
+            <th>Mother's Name</th>
+            <th>Validation</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="l : ${applications}" th:if="${l.status == 'FOR_APPROVAL'}">
+            <td><span th:text="${l.military_number}">Military Number</span></td>
+            <td><span th:text="${l.firstName}">First Name</span></td>
+            <td><span th:text="${l.lastName}">Last Name</span></td>
+            <td><span th:text="${l.email}">Email</span></td>
+            <td><span th:text="${l.amka}">Amka</span></td>
+            <td><span th:text="${l.afm}">Afm</span></td>
+            <td><span th:text="${l.fatherName}">Afm</span></td>
+            <td><span th:text="${l.motherName}">Afm</span></td>
+            <td><a th:href="@{/approveApplication/{id}(id=${l.application_id})}" class="button-yes">Approve</a>
+                <a th:href="@{/rejectApplication2/{id}(id=${l.application_id})}" class="button-no">Reject</a>
+            </td>
+        </tr>
+        <tbody>
+    </table>
+</div>
+</body>
+</html>

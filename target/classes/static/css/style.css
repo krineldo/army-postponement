@@ -1,0 +1,169 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto';
+}
+
+/* HEADER */
+header{
+    height: 90px;
+    padding: 1px;
+    background-color: #434137;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+h1{
+    position: absolute;
+    padding: 5px;
+    float: left;
+    margin-left: 5%;
+    margin-top: 20px;
+    color: #ededed;
+}
+
+ul div{
+    width: auto;
+    float: right;
+    margin-right: 5%;
+    margin-top: 15px;
+    line-height: 25px;
+}
+
+b{
+    color: #ededed;
+}
+
+nav .button-signout{
+    margin-bottom: 20px;
+    text-align:center;
+}
+
+.button-signout input{
+    background-color: #f44336;
+    color: #ededed;
+    font-size: 16px;
+    padding: 4px 8px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.button-signout input:hover{
+    background-color: #dc3c30;
+}
+
+/* BODY */
+
+body{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background-color: #a39976;
+}
+.container{
+    max-width: 700px;
+    width: 100%;
+    background-color: #dad3c1;
+    padding: 25px 30px;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+}
+.container .title{
+    font-size: 25px;
+    font-weight: 500;
+    position: relative;
+}
+
+.content form .citizen-details{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 20px 0 12px 0;
+}
+form .citizen-details .input-box{
+    margin-bottom: 15px;
+    width: calc(100% / 2 - 20px);
+}
+form .input-box span.details{
+    display: block;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+.citizen-details .input-box input{
+    height: 45px;
+    width: 100%;
+    outline: none;
+    font-size: 16px;
+    border-radius: 5px;
+    padding-left: 15px;
+    border: 1px solid #ccc;
+    transition: all 0.3s ease;
+}
+.citizen-details .input-box input:focus,
+.citizen-details .input-box input:valid{
+    border-color: #424036;
+}
+
+.button {
+    text-align: center;
+}
+
+.message-box {
+    margin-top: -50px;
+    text-align: center;
+    color: #FF1C19;
+}
+
+form .button{
+    height: 60px;
+    margin: 40px 0;
+}
+
+form .button input{
+    height: 63%;
+    width: 20%;
+    border-radius: 5px;
+    border: none;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #ededed;
+    background-color: #746b5a;
+}
+
+form .button input:hover{
+    background: #60584a;
+}
+
+@media(max-width: 584px){
+    .container{
+        max-width: 100%;
+    }
+    form .citizen-details .input-box{
+        margin-bottom: 15px;
+        width: 100%;
+    }
+    form .category{
+        width: 100%;
+    }
+    .content form .citizen-details{
+        max-height: 300px;
+        overflow-y: scroll;
+    }
+    .citizen-details::-webkit-scrollbar{
+        width: 5px;
+    }
+}
+@media(max-width: 459px){
+    .container .content .category{
+        flex-direction: column;
+    }
+}

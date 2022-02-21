@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto';
+}
+
+/* HEADER */
+header{
+    height: 90px;
+    padding: 1px;
+    background-color: #434137;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+h1{
+    position: absolute;
+    padding: 5px;
+    float: left;
+    margin-left: 5%;
+    margin-top: 20px;
+    color: #ededed;
+}
+
+ul div{
+    width: auto;
+    float: right;
+    margin-right: 5%;
+    margin-top: 15px;
+    line-height: 25px;
+}
+
+b{
+    color: #ededed;
+}
+
+nav .button-signout{
+    margin-bottom: 20px;
+    text-align:center;
+}
+
+.button-signout input{
+    background-color: #f44336;
+    color: #ededed;
+    font-size: 16px;
+    padding: 4px 8px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.button-signout input:hover{
+    background-color: #dc3c30;
+}
+
+/* BODY */
+body{
+    height: 140vh;
+    background-color: #a39976;
+}
+h2{
+    text-align: center;
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: white;
+    padding: 100px 0;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.centered-button {
+    margin-left: auto;
+    margin-right: 10px;
+    width: 100%;
+    position: absolute;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.admin-button{
+    margin-right:16px;
+}
+
+/* Table Styles */
+
+.table-wrapper{
+    margin: -90px 70px 70px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+}
+
+.fl-table {
+    font-size: 14px;
+    font-weight: normal;
+    border: none;
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 100%;
+    white-space: nowrap;
+    background-color: #e5decb;
+}
+
+.fl-table td, .fl-table th{
+    text-align: center;
+    padding: 14px;
+}
+
+.fl-table td {
+    border-right: 1px solid #dad3c1;
+    font-size: 12px;
+}
+
+.fl-table thead th {
+    color: #ffffff;
+    background: #434137;
+}
+
+
+.fl-table thead th:nth-child(odd) {
+    color: #ffffff;
+    background: #434137;
+}
+
+.fl-table tr:nth-child(even) {
+    background: #dad3c1;
+}
+
+.button-yes{
+    background-color: #746b5a;
+}
+
+.button-yes:hover{
+    background-color: #60584a;
+}
+
+.button-no{
+    background-color: #f44336;
+}
+
+.button-no:hover{
+    background-color: #dc3c30;
+}
+
+.button-yes,
+.button-no{
+    color: #ededed;
+    font-size: 18px;
+    padding: 10px 12px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}

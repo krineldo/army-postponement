@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Search Application Status</title>
+</head>
+<body>
+<div class="container">
+  <h2 align="center">Search Application Status</h2>
+  <form th:action="@{/search}"  method="post">
+    <input type="text" name="emailKeyword" th:value="${emailKeyword}"  placeholder="Enter Email" size="50" >
+
+    <div class="button">
+      <input type="submit" value="Submit">
+    </div>
+    <div class="message-box">
+      <span th:utext="${message}"></span>
+    </div>
+</body>
+</html>
